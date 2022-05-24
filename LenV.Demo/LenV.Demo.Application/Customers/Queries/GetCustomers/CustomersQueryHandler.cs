@@ -1,6 +1,6 @@
 ﻿namespace LenV.Demo.Application.Customers.Queries.GetCustomers
 {
-    public class CustomersQueryHandler : IQueryHandler<CustomersQuery, Customer[]>
+    public class CustomersQueryHandler : IRequestHandler<CustomersQuery, Customer[]>
     {
         private readonly ICustomerDbContext customerDbContext;
 
@@ -9,7 +9,7 @@
             this.customerDbContext = customerDbContext;
         }
 
-        public async Task<Customer[]> ExecuteQuery(CustomersQuery request, CancellationToken cancellationToken = default)
+        public async Task<Customer[]> Handle(CustomersQuery request, CancellationToken cancellationToken)
         {
             return await customerDbContext.Customers
                 .AsNoTracking()

@@ -10,15 +10,11 @@ namespace LenV.Demo.Application.UnitTests.Customers.Commands
         {
             var expect = "UpdatedCustomer";
 
-            var updatHandler = (ICommandHandler<UpdateCustomerFullnameCommand>)serviceProvider
-                .GetService(typeof(ICommandHandler<UpdateCustomerFullnameCommand>));
+            var mediator = (IMediator)serviceProvider.GetService(typeof(IMediator));
 
-            await updatHandler.Execute(new UpdateCustomerFullnameCommand { Id = 1, Fullname = expect });
+            await mediator.Send(new UpdateCustomerFullnameCommand { Id = 1, Fullname = expect });
 
-            var getHandler = (IQueryHandler<CustomerQuery, Customer>)serviceProvider
-                .GetService(typeof(IQueryHandler<CustomerQuery, Customer>));
-
-            var entity = await getHandler.ExecuteQuery(new CustomerQuery { Id = 1 });
+            var entity = await mediator.Send(new CustomerQuery { Id = 1 });
 
             Assert.Equal(expect, entity.FullName);
         }

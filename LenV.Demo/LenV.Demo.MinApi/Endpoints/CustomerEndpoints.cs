@@ -10,21 +10,21 @@ namespace LenV.Demo.MinApi.Endpoints
     {
         public static WebApplication UseCustomerEndpoints(this WebApplication app)
         {
-            app.MapGet("/customers", async (IQueryHandler<CustomersQuery, Customer[]> customerQueryHandler) =>
+            app.MapGet("/customers", async (IMediator mediatr) =>
             {
-                return await customerQueryHandler.ExecuteQuery(new CustomersQuery { });
+                return await mediatr.Send(new CustomersQuery { });
             })
             .WithName("GetCustomers");
 
-            app.MapGet("/customer/{id}", async (IQueryHandler<CustomerQuery, Customer> customerQueryHandler, int id) =>
+            app.MapGet("/customer/{id}", async (IMediator mediatr, int id) =>
             {
-                return await customerQueryHandler.ExecuteQuery(new CustomerQuery { Id = id });
+                return await mediatr.Send(new CustomerQuery { Id = id });
             })
             .WithName("GetCustomer");
 
-            app.MapPut("/customer", async (ICommandHandler<UpdateCustomerFullnameCommand> updateCustomerFullnameHandler, UpdateCustomerFullnameCommand updateCustomerFullnameCommand) =>
+            app.MapPut("/customer", async (IMediator mediatr, UpdateCustomerFullnameCommand updateCustomerFullnameCommand) =>
             {
-                await updateCustomerFullnameHandler.Execute(updateCustomerFullnameCommand);
+                await mediatr.Send(updateCustomerFullnameCommand);
 
                 return Results.Ok();
             })

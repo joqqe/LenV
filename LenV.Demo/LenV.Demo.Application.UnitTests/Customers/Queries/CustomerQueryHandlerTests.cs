@@ -7,10 +7,9 @@ namespace LenV.Demo.Application.UnitTests.Customers.Queries
         [Fact]
         public async Task GetCustomer_Returns_1items() 
         {
-            var handler = (IQueryHandler<CustomerQuery, Customer>)serviceProvider
-                .GetService(typeof(IQueryHandler<CustomerQuery, Customer>));
+            var mediator = (IMediator)serviceProvider.GetService(typeof(IMediator));
 
-            var entity = await handler.ExecuteQuery(new CustomerQuery { Id = 1 });
+            var entity = await mediator.Send(new CustomerQuery { Id = 1 });
 
             Assert.Equal(1, entity.Id);
         }

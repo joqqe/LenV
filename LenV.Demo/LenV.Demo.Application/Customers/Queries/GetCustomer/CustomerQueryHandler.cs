@@ -1,6 +1,6 @@
 ﻿namespace LenV.Demo.Application.Customers.Queries.GetCustomer
 {
-    public class CustomerQueryHandler : IQueryHandler<CustomerQuery, Customer>
+    public class CustomerQueryHandler : IRequestHandler<CustomerQuery, Customer>
     {
         private readonly ICustomerDbContext customerDbContext;
 
@@ -8,12 +8,13 @@
         {
             this.customerDbContext = customerDbContext;
         }
-        public async Task<Customer> ExecuteQuery(CustomerQuery request, CancellationToken cancellationToken = default)
+        
+        public async Task<Customer> Handle(CustomerQuery request, CancellationToken cancellationToken)
         {
             var entity = await customerDbContext.Customers
                 .FindAsync(new object[] { request.Id }, default);
-            
-            return entity 
+
+            return entity
                 ?? throw new NotFoundException(nameof(Customer), request.Id);
         }
     }

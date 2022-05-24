@@ -1,5 +1,4 @@
-﻿using LenV.Demo.Application.Customers.Commands.UpdateCustomerFullname;
-using Microsoft.Extensions.DependencyInjection;
+﻿using Microsoft.Extensions.DependencyInjection;
 
 namespace LenV.Demo.Application
 {
@@ -7,13 +6,8 @@ namespace LenV.Demo.Application
     {
         public static IServiceCollection AddApplication(this IServiceCollection services)
         {
-            // Queries
-            services.AddScoped<IQueryHandler<CustomersQuery, Customer[]>, CustomersQueryHandler>();
-            services.AddScoped<IQueryHandler<CustomerQuery,Customer>, CustomerQueryHandler>();
+            services.AddMediatR(Assembly.GetExecutingAssembly());
             
-            // Commands
-            services.AddScoped<ICommandHandler<UpdateCustomerFullnameCommand>, UpdateCustomerFullnameCommandHandler> ();
-
             return services;
         }
     }
