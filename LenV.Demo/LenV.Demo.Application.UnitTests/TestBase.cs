@@ -1,6 +1,6 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 
-namespace LenV.Demo.Application.IntegrationTests
+namespace LenV.Demo.Application.UnitTests
 {
     public abstract class TestsBase : IDisposable
     {

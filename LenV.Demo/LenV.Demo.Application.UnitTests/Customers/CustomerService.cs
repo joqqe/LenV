@@ -1,4 +1,4 @@
-namespace LenV.Demo.Application.IntegrationTests.Customers
+namespace LenV.Demo.Application.UnitTests.Customers
 {
     public class CustomerService : TestsBase
     {
