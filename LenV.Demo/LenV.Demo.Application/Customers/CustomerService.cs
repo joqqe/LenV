@@ -18,7 +18,7 @@ namespace LenV.Demo.Application.Customers
                 .ToArrayAsync();
         }
 
-        public async Task<Customer> GetCustomerAsync(int id)
+        public async Task<Customer> GetByIdAsync(int id)
         {
             var entity = await customerDbContext.Customers
                 .FindAsync(new object[] { id }, default);
