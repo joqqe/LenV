@@ -14,11 +14,29 @@ namespace LenV.Demo.Application.IntegrationTests
             services.AddInfrastructure();
 
             serviceProvider = services.BuildServiceProvider();
+
+            EnsureDatabase();
         }
 
         // Called after every test method.
         public void Dispose()
         {
+            var scopeFactory = serviceProvider.GetRequiredService<IServiceScopeFactory>();
+            using var scope = scopeFactory.CreateScope();
+
+            var context = scope.ServiceProvider.GetRequiredService<CustomerDbContext>();
+
+            context.Database.EnsureDeleted();
+        }
+
+        private void EnsureDatabase()
+        {
+            var scopeFactory = serviceProvider.GetRequiredService<IServiceScopeFactory>();
+            using var scope = scopeFactory.CreateScope();
+
+            var context = scope.ServiceProvider.GetRequiredService<CustomerDbContext>();
+
+            context.Database.EnsureCreated();
         }
     }
 }

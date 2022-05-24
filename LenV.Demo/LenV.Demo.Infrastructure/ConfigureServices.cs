@@ -9,7 +9,7 @@ namespace LenV.Demo.Infrastructure
     {
         public static IServiceCollection AddInfrastructure(this IServiceCollection services)
         {
-            var connectionString = "DataSource=:memory:;mode=memory;cache=shared";
+            var connectionString = "DataSource=:memory:";
             var connection = new SqliteConnection(connectionString);
             connection.Open();
 
