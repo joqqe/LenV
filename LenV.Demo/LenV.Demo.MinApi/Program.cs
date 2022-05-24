@@ -1,7 +1,6 @@
 using LenV.Demo.Application;
 using LenV.Demo.Application.Common.Interfaces;
 using LenV.Demo.Infrastructure;
-using LenV.Demo.MinApi;
 using Microsoft.OpenApi.Models;
 
 var builder = WebApplication.CreateBuilder(args);
