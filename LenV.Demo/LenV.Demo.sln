@@ -3,21 +3,19 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.2.32516.85
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LenV.Demo.Api", "LenV.Demo.Api\LenV.Demo.Api.csproj", "{408EF3A8-0506-4FA7-8AD5-A63BE42FD4F5}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{6C281DF4-E89F-450E-A63F-5367E224AC2F}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{7472847B-71B7-46B5-A218-5BDF28758A5F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LenV.Demo.MinApi", "LenV.Demo.MinApi\LenV.Demo.MinApi.csproj", "{E3E2F060-76E4-41F2-BA36-82DF86535560}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LenV.Demo.MinApi", "LenV.Demo.MinApi\LenV.Demo.MinApi.csproj", "{E3E2F060-76E4-41F2-BA36-82DF86535560}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LenV.Demo.Domain", "LenV.Demo.Domain\LenV.Demo.Domain.csproj", "{12858ED9-26FA-47A4-98CA-639A15DD243F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LenV.Demo.Domain", "LenV.Demo.Domain\LenV.Demo.Domain.csproj", "{12858ED9-26FA-47A4-98CA-639A15DD243F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LenV.Demo.Application", "LenV.Demo.Application\LenV.Demo.Application.csproj", "{9B68F1D2-7790-46AC-9B13-D5C01688D098}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LenV.Demo.Application", "LenV.Demo.Application\LenV.Demo.Application.csproj", "{9B68F1D2-7790-46AC-9B13-D5C01688D098}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LenV.Demo.Infrastructure", "LenV.Demo.Infrastructure\LenV.Demo.Infrastructure.csproj", "{1A6464CD-0B35-4DCE-BEEF-3179CA7D8F0E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LenV.Demo.Infrastructure", "LenV.Demo.Infrastructure\LenV.Demo.Infrastructure.csproj", "{1A6464CD-0B35-4DCE-BEEF-3179CA7D8F0E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LenV.Demo.Application.IntegrationTests", "LenV.Demo.Application.IntegrationTests\LenV.Demo.Application.IntegrationTests.csproj", "{E1F5F7E4-8DA1-4665-B1CD-57A52E32C714}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LenV.Demo.Application.IntegrationTests", "LenV.Demo.Application.IntegrationTests\LenV.Demo.Application.IntegrationTests.csproj", "{E1F5F7E4-8DA1-4665-B1CD-57A52E32C714}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -25,10 +23,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{408EF3A8-0506-4FA7-8AD5-A63BE42FD4F5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{408EF3A8-0506-4FA7-8AD5-A63BE42FD4F5}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{408EF3A8-0506-4FA7-8AD5-A63BE42FD4F5}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{408EF3A8-0506-4FA7-8AD5-A63BE42FD4F5}.Release|Any CPU.Build.0 = Release|Any CPU
 		{E3E2F060-76E4-41F2-BA36-82DF86535560}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{E3E2F060-76E4-41F2-BA36-82DF86535560}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E3E2F060-76E4-41F2-BA36-82DF86535560}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -54,7 +48,6 @@ Global
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
-		{408EF3A8-0506-4FA7-8AD5-A63BE42FD4F5} = {6C281DF4-E89F-450E-A63F-5367E224AC2F}
 		{E3E2F060-76E4-41F2-BA36-82DF86535560} = {6C281DF4-E89F-450E-A63F-5367E224AC2F}
 		{12858ED9-26FA-47A4-98CA-639A15DD243F} = {6C281DF4-E89F-450E-A63F-5367E224AC2F}
 		{9B68F1D2-7790-46AC-9B13-D5C01688D098} = {6C281DF4-E89F-450E-A63F-5367E224AC2F}
