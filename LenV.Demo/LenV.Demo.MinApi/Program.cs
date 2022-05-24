@@ -1,10 +1,12 @@
 using LenV.Demo.Application;
 using LenV.Demo.Application.Common.Interfaces;
 using LenV.Demo.Infrastructure;
+using LenV.Demo.MinApi;
 using Microsoft.OpenApi.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 
+// configuration
 var defaultLogLevel = builder.Configuration.GetValue<string>("Logging:LogLevel:Default");
 var secret = builder.Configuration.GetValue<string>("user");
 
@@ -18,6 +20,7 @@ builder.Services.AddSwaggerGen(c =>
     c.ResolveConflictingActions(apiDescriptions => apiDescriptions.First());
 
 });
+
 builder.Services.AddApplication();
 builder.Services.AddInfrastructure();
 

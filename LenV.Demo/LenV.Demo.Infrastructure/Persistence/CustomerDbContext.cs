@@ -10,7 +10,6 @@ namespace LenV.Demo.Infrastructure.Persistence
         public CustomerDbContext(DbContextOptions<CustomerDbContext> options)
             : base(options)
         {
-            Database.EnsureDeleted();
             Database.EnsureCreated();
         }
 
