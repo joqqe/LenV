@@ -1,14 +1,8 @@
 using LenV.Demo.Application;
-using LenV.Demo.Application.Common.Interfaces;
-using LenV.Demo.Infrastructure;
-using LenV.Demo.MinApi;
 using Microsoft.OpenApi.Models;
+using LenV.Demo.Infrastructure;
 
 var builder = WebApplication.CreateBuilder(args);
-
-// configuration
-var defaultLogLevel = builder.Configuration.GetValue<string>("Logging:LogLevel:Default");
-var secret = builder.Configuration.GetValue<string>("user");
 
 // Add services to the container.
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
@@ -40,10 +34,6 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
-app.MapGet("/customers", async (ICustomerService customerService) =>
-{
-    return await customerService.GetAllAsync();
-})
-.WithName("GetCustomers");
+app.UseCustomerEndpoints();
 
 app.Run();

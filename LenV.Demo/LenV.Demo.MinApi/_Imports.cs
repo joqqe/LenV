@@ -1,0 +1,1 @@
+﻿global using LenV.Demo.MinApi.Endpoints;

@@ -1,10 +1,9 @@
-
-namespace LenV.Demo.Application.IntegrationTests
+namespace LenV.Demo.Application.IntegrationTests.Customers
 {
-    public class CustomerService : TestsBase
+    public class CustomerServiceTests : TestsBase
     {
         [Fact]
-        public async Task GetAll_Returns_2_items()
+        public async Task GetAll_Returns_2items()
         {
             var customerService = (ICustomerService)serviceProvider.GetService(typeof(ICustomerService));
 
