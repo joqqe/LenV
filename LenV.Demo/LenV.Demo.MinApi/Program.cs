@@ -12,7 +12,6 @@ builder.Services.AddSwaggerGen(c =>
     c.SwaggerDoc("v1", new OpenApiInfo { Title = "MinApi", Version = "v1" });
     c.IncludeXmlComments(Path.Combine(AppContext.BaseDirectory, "LenV.Demo.MinApi.xml"));
     c.ResolveConflictingActions(apiDescriptions => apiDescriptions.First());
-
 });
 
 builder.Services.AddApplication();
