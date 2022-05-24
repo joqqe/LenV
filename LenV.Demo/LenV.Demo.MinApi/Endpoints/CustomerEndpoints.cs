@@ -10,6 +10,12 @@
             })
             .WithName("GetCustomers");
 
+            app.MapGet("/customer/{id}", async (ICustomerService customerService, int id) =>
+            {
+                return await customerService.GetByIdAsync(id);
+            })
+            .WithName("GetCustomer");
+
             return app;
         }
     }
