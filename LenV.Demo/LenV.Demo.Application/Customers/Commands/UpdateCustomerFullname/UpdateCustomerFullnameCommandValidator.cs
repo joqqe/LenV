@@ -1,9 +1,8 @@
 ﻿namespace LenV.Demo.Application.Customers.Commands.UpdateCustomerFullname
 {
-    public class UpdateCustomerFullnameCommandValidator<TRequest> : IRequestPreProcessor<TRequest>
-        where TRequest : UpdateCustomerFullnameCommand
+    public class UpdateCustomerFullnameCommandValidator : IRequestPreProcessor<UpdateCustomerFullnameCommand>
     {
-        public Task Process(TRequest request, CancellationToken cancellationToken)
+        public Task Process(UpdateCustomerFullnameCommand request, CancellationToken cancellationToken)
         {
             if (request.Id < 1)
                 throw new ArgumentOutOfRangeException("Id should be greater than 0.");

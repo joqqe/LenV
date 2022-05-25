@@ -24,7 +24,7 @@
 
             await customerDbContext.SaveChangesAsync(cancellationToken);
 
-            return Unit.Value;
+            return await Unit.Task;
         }
     }
 }

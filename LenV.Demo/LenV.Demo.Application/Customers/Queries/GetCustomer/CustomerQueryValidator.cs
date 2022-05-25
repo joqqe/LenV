@@ -1,10 +1,9 @@
 ﻿
 namespace LenV.Demo.Application.Customers.Queries.GetCustomer
 {
-    public class CustomerQueryValidator<TRequest> : IRequestPreProcessor<TRequest>
-        where TRequest : CustomerQuery
+    public class CustomerQueryValidator : IRequestPreProcessor<CustomerQuery>
     {
-        public Task Process(TRequest request, CancellationToken cancellationToken)
+        public Task Process(CustomerQuery request, CancellationToken cancellationToken)
         {
             if (request.Id < 1)
                 throw new ArgumentOutOfRangeException("Id should be greater than 0.");
