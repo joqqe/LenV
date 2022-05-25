@@ -13,5 +13,20 @@ namespace LenV.Demo.Application.UnitTests.Customers.Queries
 
             Assert.Equal(1, entity.Id);
         }
+
+        [Fact]
+        public async Task GetCustomer_WithIdOf0_ThrowsArgumentOutOfRangeException()
+        {
+            var mediator = (IMediator)serviceProvider.GetService(typeof(IMediator));
+            try
+            {
+                await mediator.Send(new CustomerQuery { Id = 0 });
+                Assert.True(false);
+            }
+            catch (ArgumentOutOfRangeException ex)
+            {
+                Assert.True(ex.ParamName == "Id should be greater than 0.");
+            }
+        }
     }
 }
