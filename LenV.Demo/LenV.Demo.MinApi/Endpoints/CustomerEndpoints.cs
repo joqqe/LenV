@@ -1,8 +1,6 @@
-﻿using LenV.Demo.Application.Common.Interfaces;
-using LenV.Demo.Application.Customers.Commands.UpdateCustomerFullname;
+﻿using LenV.Demo.Application.Customers.Commands.UpdateCustomerFullname;
 using LenV.Demo.Application.Customers.Queries.GetCustomer;
 using LenV.Demo.Application.Customers.Queries.GetCustomers;
-using LenV.Demo.Domain.Entities;
 
 namespace LenV.Demo.MinApi.Endpoints
 {
