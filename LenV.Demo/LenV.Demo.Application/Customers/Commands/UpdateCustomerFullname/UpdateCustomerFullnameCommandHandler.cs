@@ -30,9 +30,9 @@ namespace LenV.Demo.Application.Customers.Commands.UpdateCustomerFullname
 
             await mediator.Publish(new SendEmailNotification
             {
-                To = "", // jochen.schoonjans@rrealdolmen.com
-                Title = "Updated Customer",
-                Body = $"New fullname is {entity.FullName}"
+                To = "'jochen.schoonjans@rrealdolmen.com'",
+                Title = "'Updated Customer'",
+                Body = $"'New fullname is {entity.FullName}'"
             });
 
             return Unit.Value;
