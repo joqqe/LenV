@@ -25,7 +25,7 @@ namespace LenV.Demo.Application.UnitTests.Customers.Queries
                 var entity = await mediator.Send(new CustomerQuery { Id = 0 });
                 Assert.True(false);
             }
-            catch (ValidationException ex)
+            catch (ValidationException)
             {
                 Assert.True(true);
             }
