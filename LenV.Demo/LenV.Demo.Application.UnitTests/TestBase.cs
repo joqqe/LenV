@@ -1,4 +1,5 @@
-﻿using LenV.Demo.Infrastructure.Persistence;
+using LenV.Demo.Infrastructure.Persistence;
+using LenV.Demo.Infrastructure;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace LenV.Demo.Application.UnitTests
@@ -12,7 +13,10 @@ namespace LenV.Demo.Application.UnitTests
         {
             var services = new ServiceCollection();
             services.AddApplication();
-            services.AddInfrastructure();
+            services.AddInfrastructure(options =>
+            {
+                options.DbType = DbTypes.SqLite;
+            });
 
             serviceProvider = services.BuildServiceProvider();
 
