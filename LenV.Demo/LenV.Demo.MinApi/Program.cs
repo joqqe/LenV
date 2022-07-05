@@ -15,7 +15,10 @@ builder.Services.AddSwaggerGen(c =>
 });
 
 builder.Services.AddApplication();
-builder.Services.AddInfrastructure();
+builder.Services.AddInfrastructure(options =>
+{
+    options.DbType = DbTypes.SqLite;
+});
 
 var app = builder.Build();
 
