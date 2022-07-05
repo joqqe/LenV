@@ -7,10 +7,28 @@ namespace LenV.Demo.Infrastructure
 {
     public static class ConfigureServices
     {
-        public static IServiceCollection AddInfrastructure(this IServiceCollection services)
+        public static IServiceCollection AddInfrastructure(
+            this IServiceCollection services, Action<InfraOptions> options)
         {
-            var connectionString = "DataSource=:memory:";
-            var connection = new SqliteConnection(connectionString);
+            var infraOptions = new InfraOptions();
+            options(infraOptions);
+
+            switch (infraOptions.DbType)
+            {
+                case DbTypes.SqLite:
+                default:
+                    services.UseSqLite(infraOptions);
+                    break;
+            }
+
+            services.AddScoped<ICustomerDbContext>(provider => provider.GetRequiredService<CustomerDbContext>());
+
+            return services;
+        }
+
+        private static IServiceCollection UseSqLite(this IServiceCollection services, InfraOptions infraOptions)
+        {
+            var connection = new SqliteConnection(infraOptions.ConnectionString ?? "DataSource=:memory:");
             connection.Open();
 
             services.AddDbContext<CustomerDbContext>(options =>
@@ -18,9 +36,21 @@ namespace LenV.Demo.Infrastructure
                 options.UseSqlite(connection);
             });
 
-            services.AddScoped<ICustomerDbContext>(provider => provider.GetRequiredService<CustomerDbContext>());
-
             return services;
         }
+    }
+
+    public class InfraOptions
+    {
+        public DbTypes DbType { get; set; } = DbTypes.SqLite;
+        public string? ConnectionString { get; set; }
+    }
+
+    public enum DbTypes
+    {
+        /// <summary>
+        /// Default ConnectionString: "DataSource=:memory:"
+        /// </summary>
+        SqLite
     }
 }
