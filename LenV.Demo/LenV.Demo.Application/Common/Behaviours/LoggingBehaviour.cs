@@ -23,7 +23,7 @@ namespace LenV.Demo.Application.Common.Behaviours
             
             Console.WriteLine($"End Request Id:{id}, Request name:{name}, Request content:{requestAsString}, Total request time:{timer.ElapsedMilliseconds}ms");
 
-            return await next();
+            return response;
         }
     }
 }
